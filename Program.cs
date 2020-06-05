@@ -15,15 +15,15 @@
 
     _ = int.TryParse(cedula.Substring(cedula.Length - 1), out verificador);
 
-    for (int i = 0; i < cedula.Length - 1; i++)
+    for (int i = 0; i < (cedula.Length - 1); i++)
     {
         _ = int.TryParse(cedula[i].ToString(), out int digito);
-        int multiplicacion = digito * multiplicadores[i];
+        int producto = digito * multiplicadores[i];
                 
-        if (multiplicacion >= 10)
-            multiplicacion = (multiplicacion / 10) + (multiplicacion % 10);
+        if (producto >= 10)
+            producto = (producto / 10) + (producto % 10);
             
-        suma += multiplicacion;
+        suma += producto;
     }
 
     if ((suma + verificador) % 10 == 0)
