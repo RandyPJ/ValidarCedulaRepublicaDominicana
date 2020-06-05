@@ -1,23 +1,19 @@
-﻿public bool CedulaValida(string cedula)
+﻿public bool ValidarCedula(string cedula)
 {
     bool resultado = false;
-
-    if (string.IsNullOrEmpty(cedula) ||
-        string.IsNullOrWhiteSpace(cedula))
-        return resultado;
-
     int[] multiplicadores = { 1, 2, 1, 2, 1, 2, 1, 2, 1, 2 };
-    int verificador = 0;
+    int digitoVerificador = 0;
     int suma = 0;
 
     if (cedula.Contains("-"))
         cedula = cedula.Replace("-","");
 
-    _ = int.TryParse(cedula.Substring(cedula.Length - 1), out verificador);
+    _ = int.TryParse(cedula.Substring(cedula.Length - 1), out digitoVerificador);
 
+    int digito = 0;
     for (int i = 0; i < (cedula.Length - 1); i++)
     {
-        _ = int.TryParse(cedula[i].ToString(), out int digito);
+        _ = int.TryParse(cedula[i].ToString(), out digito);
         int producto = digito * multiplicadores[i];
                 
         if (producto >= 10)
@@ -26,7 +22,7 @@
         suma += producto;
     }
 
-    if ((suma + verificador) % 10 == 0)
+    if ((suma + digitoVerificador) % 10 == 0)
         resultado = true;
 
     return resultado;
