@@ -11,10 +11,11 @@
     _ = int.TryParse(cedula.Substring(cedula.Length - 1), out digitoVerificador);
 
     int digito = 0;
+    int producto = 0;
     for (int i = 0; i < (cedula.Length - 1); i++)
     {
         _ = int.TryParse(cedula[i].ToString(), out digito);
-        int producto = digito * multiplicadores[i];
+        producto = digito * multiplicadores[i];
                 
         if (producto >= 10)
             producto = (producto / 10) + (producto % 10);
