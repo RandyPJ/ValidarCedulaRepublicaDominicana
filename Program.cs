@@ -1,17 +1,17 @@
 ﻿public bool ValidarCedula(string cedula)
 {
+    int digito = 0;
+    int digitoVerificador = 0;
     bool resultado = false;
     int[] multiplicadores = { 1, 2, 1, 2, 1, 2, 1, 2, 1, 2 };
-    int digitoVerificador = 0;
+    int producto = 0;
     int suma = 0;
 
     if (cedula.Contains("-"))
         cedula = cedula.Replace("-","");
 
     _ = int.TryParse(cedula.Substring(cedula.Length - 1), out digitoVerificador);
-
-    int digito = 0;
-    int producto = 0;
+   
     for (int i = 0; i < (cedula.Length - 1); i++)
     {
         _ = int.TryParse(cedula[i].ToString(), out digito);
