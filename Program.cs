@@ -21,12 +21,8 @@
         int multiplicacion = digito * multiplicadores[i];
                 
         if (multiplicacion >= 10)
-        {
-            int primerDigito = (multiplicacion / 10);
-            int segundoDigito = (multiplicacion % 10);
-
-            multiplicacion = primerDigito + segundoDigito;
-        }
+            multiplicacion = (multiplicacion / 10) + (multiplicacion % 10);
+            
         suma += multiplicacion;
     }
 
